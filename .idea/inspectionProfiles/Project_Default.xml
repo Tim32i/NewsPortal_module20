@@ -1,0 +1,34 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="HtmlUnknownAttribute" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="myValues">
+        <value>
+          <list size="1">
+            <item index="0" class="java.lang.String" itemvalue="," />
+          </list>
+        </value>
+      </option>
+      <option name="myCustomValuesEnabled" value="true" />
+    </inspection_tool>
+    <inspection_tool class="PyPep8Inspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredErrors">
+        <list>
+          <option value="E114" />
+          <option value="E117" />
+          <option value="E116" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="false" level="WARNING" enabled_by_default="false">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="models_project_Tim_32i.mc_donalds.models.Post.objects" />
+          <option value="models_project_Tim_32i.mc_donalds.models.Comment.objects" />
+          <option value="NewsPortal_D2_Tim32i.NewsPortal.models.Post.objects" />
+          <option value="NewsPortal_D2_Tim32i.NewsPortal.models.Comment.objects" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>

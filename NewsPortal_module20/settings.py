@@ -42,6 +42,7 @@ INSTALLED_APPS = [
 
     'app_NewsPortal_module20',
     'django_filters',
+    'accounts',
 
     'allauth',
     'allauth.account',
@@ -49,7 +50,6 @@ INSTALLED_APPS = [
     # ... include the providers you want to enable:
     'allauth.socialaccount.providers.google',
     'allauth.socialaccount.providers.yandex',
-    'allauth.socialaccount.providers.vk',
 ]
 
 SITE_ID = 1
@@ -154,6 +154,8 @@ ACCOUNT_UNIQUE_EMAIL = True
 ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_VERIFICATION = 'none'
+
+ACCOUNT_FORMS = {'signup': 'accounts.forms.BasicSignupForm'}
 
 
 LOGIN_URL = '/accounts/login/'

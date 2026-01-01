@@ -155,7 +155,10 @@ ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 
-ACCOUNT_FORMS = {'signup': 'accounts.forms.BasicSignupForm'}
+ACCOUNT_FORMS = {'signup': 'accounts.forms.BasicSignupForm',
+                 }
 
+
+SOCIALACCOUNT_ADAPTER = 'accounts.views.CustomSocialAccountAdapter'
 
 LOGIN_URL = '/accounts/login/'

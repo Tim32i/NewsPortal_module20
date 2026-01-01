@@ -67,6 +67,19 @@
    {% endif %}
 
 
+<p>
+    user: {{ request.user }}
+</p>
+{% if not perms.app_NewsPortal_module20.add_post%}
+    <p>
+        <a href="/accounts/upgrade_to_author">Хочу быть автором</a>
+    </p>
+{% else %}
+    <p>
+        Пользователь с правами автора</a>
+    </p>
+{% endif %}
+
 
 {% endblock content %}
 

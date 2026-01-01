@@ -1,0 +1,27 @@
+{% extends 'flatpages/default.html'%}
+{% load i18n %}
+{% block title %}
+Редактирование профиля пользователя
+{% endblock title %}
+
+{% block content%}
+<h1> Редактировать профиль</h1>
+
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Save">
+</form>
+
+{% if not perms.app_NewsPortal_module20.add_post%}
+    <p>
+        <a href="/accounts/upgrade_to_author">Хочу быть автором</a>
+    </p>
+{% else %}
+    <p>
+        Пользователь с правами автора</a>
+    </p>
+{% endif %}
+
+
+{% endblock content%}

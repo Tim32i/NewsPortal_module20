@@ -7,7 +7,7 @@ from .models import Author, Post, PostCategory, Category, Comment
 from .forms import PostForm
 from .filters import NewsFilter
 
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 
 
 # Create your views here.
@@ -65,8 +65,8 @@ class PostDetailView(DetailView):
         return context
 
 
-class NewsCreateView(FormView):
-
+class NewsCreateView(PermissionRequiredMixin, LoginRequiredMixin, FormView):
+    permission_required = 'app_NewsPortal_module20.add_post'
     form_class = PostForm
     model = Post
     template_name = 'news_create.html'
@@ -93,7 +93,8 @@ class NewsCreateView(FormView):
             return HttpResponseRedirect(f'/news/{post_new.pk}')
 
 
-class ArticleCreateView(FormView):
+class ArticleCreateView(PermissionRequiredMixin, LoginRequiredMixin, FormView):
+    permission_required = 'app_NewsPortal_module20.add_post'
     form_class = PostForm
     model = Post
     template_name = 'article_create.html'
@@ -120,7 +121,8 @@ class ArticleCreateView(FormView):
             return HttpResponseRedirect(f'/articles/{post_new.pk}')
 
 
-class NewsUpdateView(LoginRequiredMixin, UpdateView):
+class NewsUpdateView(PermissionRequiredMixin, LoginRequiredMixin, UpdateView):
+    permission_required = 'app_NewsPortal_module20.change_post'
     form_class = PostForm
     model = Post
     template_name = 'news_update.html'
@@ -153,7 +155,8 @@ class NewsUpdateView(LoginRequiredMixin, UpdateView):
             return HttpResponseRedirect(f'/news/{post_updated.pk}')\
 
 
-class ArticleUpdateView(LoginRequiredMixin, UpdateView):
+class ArticleUpdateView(PermissionRequiredMixin, LoginRequiredMixin, UpdateView):
+    permission_required = 'app_NewsPortal_module20.change_post'
     form_class = PostForm
     model = Post
     template_name = 'article_update.html'
@@ -186,7 +189,8 @@ class ArticleUpdateView(LoginRequiredMixin, UpdateView):
             return HttpResponseRedirect(f'/news/{post_updated.pk}')
 
 
-class NewsDeleteView(DeleteView):
+class NewsDeleteView(PermissionRequiredMixin, LoginRequiredMixin, DeleteView):
+    permission_required = 'app_NewsPortal_module20.delete_post'
     model = Post
     template_name = 'news_delete.html'
     success_url = reverse_lazy('news_list')
